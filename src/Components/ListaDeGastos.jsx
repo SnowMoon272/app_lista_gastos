@@ -1,10 +1,19 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import { Header, Titulo } from "../Tools/Header";
+import BtnRegresar from "../Tools/BtnRegresar";
 
 function ListaDeGastos() {
   return (
-    <div>
-      <h1>Lista de Gastos</h1>
-    </div>
+    <>
+      <Helmet>
+        <title>Lista de Gastos</title>
+      </Helmet>
+      <Header>
+        <BtnRegresar ruta="/" />
+        <Titulo>Lista de Gastos</Titulo>
+      </Header>
+    </>
   );
 }
 

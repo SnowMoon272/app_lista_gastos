@@ -40,8 +40,8 @@ const Index = () => {
             <Route path="/editar/id:" component={EditarGasto} />
             <Route path="/" component={App} />
           </Switch>
-          <Fondo />
         </Contenedor>
+        <Fondo />
       </BrowserRouter>
     </>
   );
