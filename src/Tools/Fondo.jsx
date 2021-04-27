@@ -10,7 +10,7 @@ const Svg = styled.svg`
   left: 0;
   z-index: 0;
   path {
-    fill: rgba(66, 132, 148, 0.287);
+    fill: rgba(61, 78, 233, 0.746);
   }
 `;
 

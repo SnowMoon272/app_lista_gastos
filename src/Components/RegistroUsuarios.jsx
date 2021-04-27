@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Boton from "../Tools/Boton";
 import { ReactComponent as SvgLogin } from "../Images/registro.svg";
 import { Header, Titulo, ContenedorHeader } from "../Tools/Header";
+import { auth } from "../firebase/firebaseConfig";
+import Alerta from "../Tools/Alerta";
 import {
   Formulario,
   Input,
@@ -17,9 +20,12 @@ const Svg = styled(SvgLogin)`
 `;
 
 function RegistroUsuarios() {
+  const history = useHistory();
   const [correo, establecerCorreo] = useState("");
   const [password, establecerPassword] = useState("");
   const [password2, establecerPassword2] = useState("");
+  const [estadoAlerta, cambiarEstadoAlerta] = useState(false);
+  const [alerta, cambiarAlerta] = useState({});
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -37,27 +43,66 @@ function RegistroUsuarios() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    cambiarEstadoAlerta(false);
+    cambiarAlerta({});
 
     /* Comprobamos del lado del cleinte que el correo sea valido. */
     const expresionRegular = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
     if (!expresionRegular.test(correo)) {
-      console.log("Ingresa un correo electronico valido.");
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "Ingresa un correo electronico valido.",
+      });
       return null;
     }
 
     if (correo === "" || password === "" || password2 === "") {
-      console.log("Porfabor rellana todos los diatos");
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "Porfabor rellana todos los datos",
+      });
       return null;
     }
 
     if (password !== password2) {
-      console.log("Las contraseñas no coinciden");
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "Las contraseñas no coinciden",
+      });
       return null;
     }
 
-    console.log("Usuario registrado");
+    try {
+      await auth.createUserWithEmailAndPassword(correo, password);
+      history.push("/");
+    } catch (error) {
+      cambiarEstadoAlerta(true);
+      let Mensaje;
+      switch (error.code) {
+        case "auth/invalid-password":
+          Mensaje = "La contraseña tiene que ser de al menos 6 caracteres.";
+          break;
+        case "auth/email-already-in-use":
+          Mensaje =
+            "Ya existe una cuenta con el correo electrónico proporcionado.";
+          break;
+        case "auth/invalid-email":
+          Mensaje = "El correo electrónico no es válido.";
+          break;
+        default:
+          Mensaje = "Hubo un error al intentar crear la cuenta.";
+          break;
+      }
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: Mensaje,
+      });
+    }
   };
 
   return (
@@ -103,6 +148,12 @@ function RegistroUsuarios() {
           </Boton>
         </ContenedorBoton>
       </Formulario>
+      <Alerta
+        tipo={alerta.tipo}
+        mensaje={alerta.mensaje}
+        estadoAlerta={estadoAlerta}
+        cambiarEstadoAlerta={cambiarEstadoAlerta}
+      />
     </>
   );
 }

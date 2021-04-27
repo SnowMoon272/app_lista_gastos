@@ -13,6 +13,7 @@ import RegistroUsuarios from "./Components/RegistroUsuarios";
 import Fondo from "./Tools/Fondo";
 import App from "./App";
 import Contenedor from "./Tools/Contenedor";
+import { AuthProvider } from "./contextos/AuthContext";
 /* Assets & CSS */
 import "./index.css";
 import favicon from "./Images/logo.png";
@@ -30,19 +31,21 @@ const Index = () => {
       <Helmet>
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </Helmet>
-      <BrowserRouter>
-        <Contenedor>
-          <Switch>
-            <Route path="/iniciar-sesion" component={InicioSesion} />
-            <Route path="/crear-cuenta" component={RegistroUsuarios} />
-            <Route path="/categorias" component={GastosPorCategoria} />
-            <Route path="/lista" component={ListaDeGastos} />
-            <Route path="/editar/id:" component={EditarGasto} />
-            <Route path="/" component={App} />
-          </Switch>
-        </Contenedor>
-        <Fondo />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Contenedor>
+            <Switch>
+              <Route path="/iniciar-sesion" component={InicioSesion} />
+              <Route path="/crear-cuenta" component={RegistroUsuarios} />
+              <Route path="/categorias" component={GastosPorCategoria} />
+              <Route path="/lista" component={ListaDeGastos} />
+              <Route path="/editar/id:" component={EditarGasto} />
+              <Route path="/" component={App} />
+            </Switch>
+          </Contenedor>
+          <Fondo />
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 };

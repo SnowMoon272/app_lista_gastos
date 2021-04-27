@@ -30,7 +30,7 @@ const Formulario = styled.form`
     padding: 2.5rem 0;
     font-family: "Work Sans", sans-serif;
     &::placeholder {
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 0.5);
     }
   }
 
