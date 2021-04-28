@@ -10,6 +10,7 @@ import GastosPorCategoria from "./Components/GastosPorCategoria";
 import InicioSesion from "./Components/InicioSesion";
 import ListaDeGastos from "./Components/ListaDeGastos";
 import RegistroUsuarios from "./Components/RegistroUsuarios";
+import RutaPrivada from "./Components/RutaPrivada";
 import Fondo from "./Tools/Fondo";
 import App from "./App";
 import Contenedor from "./Tools/Contenedor";
@@ -37,10 +38,18 @@ const Index = () => {
             <Switch>
               <Route path="/iniciar-sesion" component={InicioSesion} />
               <Route path="/crear-cuenta" component={RegistroUsuarios} />
-              <Route path="/categorias" component={GastosPorCategoria} />
-              <Route path="/lista" component={ListaDeGastos} />
-              <Route path="/editar/id:" component={EditarGasto} />
-              <Route path="/" component={App} />
+              <RutaPrivada path="/categorias">
+                <GastosPorCategoria />
+              </RutaPrivada>
+              <RutaPrivada path="/lista">
+                <ListaDeGastos />
+              </RutaPrivada>
+              <RutaPrivada path="/editar/id:">
+                <EditarGasto />
+              </RutaPrivada>
+              <RutaPrivada path="/">
+                <App />
+              </RutaPrivada>
             </Switch>
           </Contenedor>
           <Fondo />

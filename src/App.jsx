@@ -2,6 +2,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Boton from "./Tools/Boton";
+import BotonCerrarSesion from "./Tools/BotonCerrarSesion";
+import FormularioGasto from "./Components/FormularioGasto";
 import {
   Header,
   Titulo,
@@ -21,10 +23,11 @@ function App() {
           <ContenedorBotones>
             <Boton to="/categorias">Categorias</Boton>
             <Boton to="/lista">Lista de Gastos</Boton>
-            <Boton to="/">X</Boton>
+            <BotonCerrarSesion />
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
+      <FormularioGasto />
     </>
   );
 }
