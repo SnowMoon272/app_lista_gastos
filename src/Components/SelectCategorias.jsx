@@ -13,6 +13,7 @@ const ContenedorSelect = styled.div`
   width: 40%;
   padding: 0px 1.25rem; /* 20px */
   font-size: 1.5rem; /* 24px */
+  font-weight: 400;
   text-align: center;
   display: flex;
   align-items: center;
