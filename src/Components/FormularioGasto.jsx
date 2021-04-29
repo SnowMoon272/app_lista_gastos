@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import getUnixTime from "date-fns/getUnixTime";
-import fromUnixTime from "date-fns/fromUnixTime";
+// import fromUnixTime from "date-fns/fromUnixTime";
 import DatePicker from "./DatePicker";
 import SelectCategorias from "./SelectCategorias";
 import Boton from "../Tools/Boton";
 import { ReactComponent as IconoPlus } from "../Images/plus.svg";
 import agregarGasto from "../firebase/agregarGasto";
+import Alerta from "../Tools/Alerta";
 import { useAuth } from "../contextos/AuthContext";
 import {
   ContenedorFiltros,
@@ -20,6 +21,9 @@ function FormularioGasto() {
   const [inputCantidad, cambiarInputCantidad] = useState("");
   const [categoria, cambiarCategoria] = useState("Hogar");
   const [fecha, cambiarFecha] = useState(new Date());
+  const [estadoAlerta, cambiarEstadoAlerta] = useState(false);
+  const [alerta, cambiarAlerta] = useState({});
+
   const { usuario } = useAuth();
 
   const handleChange = (e) => {
@@ -32,15 +36,52 @@ function FormularioGasto() {
 
   const handleSubmint = (e) => {
     e.preventDefault();
+    // Trasformar la cantidad en numero y le pasamos 2 decimales.
     const Cantidad = parseFloat(inputCantidad).toFixed(2);
 
-    agregarGasto({
-      categoriar: categoria,
-      descripcion: inputDescripcion,
-      cantidad: Cantidad,
-      fecha: getUnixTime(fecha),
-      uidUsuario: usuario.uid,
-    });
+    // Comprobamos que haya una descripcion y valor.
+    if (inputDescripcion !== "" && inputCantidad !== "") {
+      if (Cantidad) {
+        agregarGasto({
+          categoriar: categoria,
+          descripcion: inputDescripcion,
+          cantidad: Cantidad,
+          fecha: getUnixTime(fecha),
+          uidUsuario: usuario.uid,
+        })
+          .then(() => {
+            cambiarCategoria("hogar");
+            cambiarInputDescripcion("");
+            cambiarInputCantidad("");
+            cambiarFecha(new Date());
+
+            cambiarEstadoAlerta(true);
+            cambiarAlerta({
+              tipo: "exito",
+              mensaje: "El gasto fue agregado correctamente.",
+            });
+          })
+          .catch((error) => {
+            cambiarEstadoAlerta(true);
+            cambiarAlerta({
+              tipo: "error",
+              mensaje: `Hubo un problema al agregar un gasto. ${error}`,
+            });
+          });
+      } else {
+        cambiarEstadoAlerta(true);
+        cambiarAlerta({
+          tipo: "error",
+          mensaje: "Ingresa una cantidad valida",
+        });
+      }
+    } else {
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "Debes rellenar todos los campos.",
+      });
+    }
   };
 
   return (
@@ -75,6 +116,12 @@ function FormularioGasto() {
           Agregar Gasto <IconoPlus />
         </Boton>
       </ContenedorBoton>
+      <Alerta
+        tipo={alerta.tipo}
+        mensaje={alerta.mensaje}
+        estadoAlerta={estadoAlerta}
+        cambiarEstadoAlerta={cambiarEstadoAlerta}
+      />
     </Formulario>
   );
 }

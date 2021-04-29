@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Header, Titulo } from "../Tools/Header";
 import BtnRegresar from "../Tools/BtnRegresar";
+import BarraTotalGastado from "./BarraTotalGastado";
 
 function GastosPorCategoria() {
   return (
@@ -13,6 +14,7 @@ function GastosPorCategoria() {
         <BtnRegresar ruta="/" />
         <Titulo>Gastos por Categoria</Titulo>
       </Header>
+      <BarraTotalGastado />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Boton from "./Tools/Boton";
 import BotonCerrarSesion from "./Tools/BotonCerrarSesion";
 import FormularioGasto from "./Components/FormularioGasto";
+import BarraTotalGastado from "./Components/BarraTotalGastado";
 import {
   Header,
   Titulo,
@@ -17,6 +18,7 @@ function App() {
       <Helmet>
         <title>Agregar Gasto</title>
       </Helmet>
+
       <Header>
         <ContenedorHeader>
           <Titulo>Agegar Gasto</Titulo>
@@ -27,7 +29,10 @@ function App() {
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
+
       <FormularioGasto />
+
+      <BarraTotalGastado />
     </>
   );
 }
