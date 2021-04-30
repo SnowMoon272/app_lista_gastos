@@ -11,7 +11,7 @@ const useObtenerGastos = () => {
       .collection("gastos")
       .where("Id_User", "==", usuario.uid)
       .orderBy("Fecha", "desc")
-      .limit(7)
+      .limit(10)
       .onSnapshot((snapshot) => {
         cambiarGastos(
           snapshot.docs.map((gasto) => {
