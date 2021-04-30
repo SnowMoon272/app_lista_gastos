@@ -10,7 +10,7 @@ const useObtenerGastos = () => {
     const unsuscribe = db
       .collection("gastos")
       .where("Id_User", "==", usuario.uid)
-      .orderBy("fecha", "desc")
+      .orderBy("Fecha", "desc")
       .limit(10)
       .onSnapshot((snapshot) => {
         cambiarGastos(
