@@ -9,7 +9,7 @@ const agregarGasto = ({
 }) => {
   return db.collection("gastos").add({
     Descripcion: descripcion,
-    Cantidad: cantidad,
+    Cantidad: Number(cantidad),
     Categoria: categoriar,
     Fecha: fecha,
     Id_User: uidUsuario,

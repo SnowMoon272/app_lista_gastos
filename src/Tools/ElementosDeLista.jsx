@@ -22,7 +22,7 @@ const Lista = styled.ul`
 
 const ElementoLista = styled.li`
   padding: 1.25rem 0; /* 20px */
-  border-bottom: 2px solid #f2f2f2;
+  border-bottom: 2px solid #cfcfcf;
   display: grid;
   gap: 0.31rem; /* 5px */
   justify-content: space-between;
@@ -85,7 +85,8 @@ const Descripcion = styled.div`
 
 const Valor = styled.div`
   font-size: 1.25rem; /* 20px */
-  font-weight: 700;
+  font-weight: 600;
+  font-family: Work Sans;
   justify-content: end;
 
   @media (max-width: 50rem) {
@@ -97,6 +98,7 @@ const Valor = styled.div`
 const Fecha = styled.div`
   border-radius: 0.31rem; /* 5px */
   background: ${theme.azulClaro};
+  font-family: Work Sans;
   text-align: center;
   color: #fff;
   padding: 0.62rem 3.12rem; /* 10px 50px */

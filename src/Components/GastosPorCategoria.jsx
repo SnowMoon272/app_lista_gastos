@@ -1,8 +1,11 @@
+/* Librarys & Frameworks */
 import React from "react";
 import { Helmet } from "react-helmet";
+/* Componets */
 import { Header, Titulo } from "../Tools/Header";
-import BtnRegresar from "../Tools/BtnRegresar";
 import BarraTotalGastado from "./BarraTotalGastado";
+/* Elements */
+import BtnRegresar from "../Tools/BtnRegresar";
 
 function GastosPorCategoria() {
   return (

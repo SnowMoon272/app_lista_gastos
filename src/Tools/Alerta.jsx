@@ -1,5 +1,7 @@
 /* eslint-disable indent */
+/* Librarys & Frameworks */
 import React, { useEffect } from "react";
+/* Assets & CSS */
 import styled, { keyframes } from "styled-components";
 import theme from "../Assets/Colors";
 

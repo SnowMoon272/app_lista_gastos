@@ -5,6 +5,7 @@ const Boton = styled(Link)`
   background: ${(props) => (props.primario ? "#5B69E2" : "#000")};
   width: ${(props) => (props.conIcono ? "15.62rem" : "auto")}; /* 250px */
   margin-left: 1.25rem; /* 20px */
+  margin-bottom: 0.5rem;
   border: none;
   border-radius: 0.625rem; /* 10px */
   color: #fff;

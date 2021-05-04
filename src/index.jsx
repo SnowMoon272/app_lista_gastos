@@ -25,6 +25,12 @@ WebFont.load({
     families: ["Raleway:200,400,600,800", "sans-serif"],
   },
 });
+WebFont.load({
+  google: {
+    // Raleway:wght@200;300;400;500;600;700;800
+    families: ["Work Sans:200,400,600,800", "sans-serif"],
+  },
+});
 
 const Index = () => {
   return (
@@ -44,7 +50,7 @@ const Index = () => {
               <RutaPrivada path="/lista">
                 <ListaDeGastos />
               </RutaPrivada>
-              <RutaPrivada path="/editar/id:">
+              <RutaPrivada path="/editar/:id">
                 <EditarGasto />
               </RutaPrivada>
               <RutaPrivada path="/">

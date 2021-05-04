@@ -1,11 +1,13 @@
+/* Librarys & Frameworks */
 import React from "react";
-import styled from "styled-components";
 import DayPickerInput from "react-day-picker/DayPickerInput";
-import { DateUtils } from "react-day-picker";
-import "react-day-picker/lib/style.css";
 import dateFnsFormat from "date-fns/format";
 import dateFnsParse from "date-fns/parse";
+import { DateUtils } from "react-day-picker";
 import { es } from "date-fns/locale";
+import "react-day-picker/lib/style.css";
+/* Assets & CSS */
+import styled from "styled-components";
 import theme from "../Assets/Colors";
 
 const ContenedorInput = styled.div`

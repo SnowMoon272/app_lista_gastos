@@ -1,17 +1,21 @@
+/* Librarys & Frameworks */
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
+/* Componets */
 import styled from "styled-components";
-import Boton from "../Tools/Boton";
-import { ReactComponent as SvgLogin } from "../Images/login.svg";
 import { Header, Titulo, ContenedorHeader } from "../Tools/Header";
-import { auth } from "../firebase/firebaseConfig";
+/* Elements */
+import Boton from "../Tools/Boton";
 import Alerta from "../Tools/Alerta";
 import {
   Formulario,
   Input,
   ContenedorBoton,
 } from "../Tools/ElementosDeFormularios";
+/* Assets & CSS */
+import { ReactComponent as SvgLogin } from "../Images/login.svg";
+import { auth } from "../firebase/firebaseConfig";
 
 const Svg = styled(SvgLogin)`
   width: 100%;

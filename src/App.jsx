@@ -1,9 +1,7 @@
 /* Librarys & Frameworks */
 import React from "react";
 import { Helmet } from "react-helmet";
-import Boton from "./Tools/Boton";
-import BotonCerrarSesion from "./Tools/BotonCerrarSesion";
-import FormularioGasto from "./Components/FormularioGasto";
+/* Componets */
 import BarraTotalGastado from "./Components/BarraTotalGastado";
 import {
   Header,
@@ -11,6 +9,11 @@ import {
   ContenedorHeader,
   ContenedorBotones,
 } from "./Tools/Header";
+/* Elements */
+import BotonCerrarSesion from "./Tools/BotonCerrarSesion";
+import FormularioGasto from "./Components/FormularioGasto";
+/* Assets & CSS */
+import Boton from "./Tools/Boton";
 
 function App() {
   return (

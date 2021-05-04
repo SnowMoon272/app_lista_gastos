@@ -1,7 +1,9 @@
+/* Librarys & Frameworks */
 import React from "react";
+/* Assets & CSS */
 import styled from "styled-components";
-import theme from "../Assets/Colors";
 import convertirAMoneda from "../Funciones/convertirAMoneda";
+import theme from "../Assets/Colors";
 
 const BarraTotal = styled.div`
   background: ${theme.verde};

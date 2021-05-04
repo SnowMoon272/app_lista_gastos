@@ -1,4 +1,6 @@
+/* Librarys & Frameworks */
 import React, { useState } from "react";
+/* Assets & CSS */
 import styled from "styled-components";
 import theme from "../Assets/Colors";
 import IconoCategoria from "../Tools/IconoCategoria";

@@ -5,7 +5,7 @@ const theme = {
   verde: "#43A854",
   rojo: "#E34747",
   grisClaro: "#E8EFF1",
-  grisClaro2: "#CBDDE2",
+  grisClaro2: "#AAB9BD",
   azulClaro: "#8792F1",
 };
 

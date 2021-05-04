@@ -37,8 +37,9 @@ const ContenedorHeader = styled.div`
 
     & > div {
       display: flex;
-      margin-bottom: 1.25rem; /* 20px */
-      justify-content: end;
+      flex-direction: column;
+      margin-bottom: 1rem; /* 20px */
+      justify-content: center;
     }
   }
 `;
