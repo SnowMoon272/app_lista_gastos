@@ -15,6 +15,7 @@ import Fondo from "./Tools/Fondo";
 import App from "./App";
 import Contenedor from "./Tools/Contenedor";
 import { AuthProvider } from "./contextos/AuthContext";
+import { TotalGastadoProvider } from "./contextos/TotalGastadoEnElMesContext";
 /* Assets & CSS */
 import "./index.css";
 import favicon from "./Images/logo.png";
@@ -39,27 +40,29 @@ const Index = () => {
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </Helmet>
       <AuthProvider>
-        <BrowserRouter>
-          <Contenedor>
-            <Switch>
-              <Route path="/iniciar-sesion" component={InicioSesion} />
-              <Route path="/crear-cuenta" component={RegistroUsuarios} />
-              <RutaPrivada path="/categorias">
-                <GastosPorCategoria />
-              </RutaPrivada>
-              <RutaPrivada path="/lista">
-                <ListaDeGastos />
-              </RutaPrivada>
-              <RutaPrivada path="/editar/:id">
-                <EditarGasto />
-              </RutaPrivada>
-              <RutaPrivada path="/">
-                <App />
-              </RutaPrivada>
-            </Switch>
-          </Contenedor>
-          <Fondo />
-        </BrowserRouter>
+        <TotalGastadoProvider>
+          <BrowserRouter>
+            <Contenedor>
+              <Switch>
+                <Route path="/iniciar-sesion" component={InicioSesion} />
+                <Route path="/crear-cuenta" component={RegistroUsuarios} />
+                <RutaPrivada path="/categorias">
+                  <GastosPorCategoria />
+                </RutaPrivada>
+                <RutaPrivada path="/lista">
+                  <ListaDeGastos />
+                </RutaPrivada>
+                <RutaPrivada path="/editar/:id">
+                  <EditarGasto />
+                </RutaPrivada>
+                <RutaPrivada path="/">
+                  <App />
+                </RutaPrivada>
+              </Switch>
+            </Contenedor>
+            <Fondo />
+          </BrowserRouter>
+        </TotalGastadoProvider>
       </AuthProvider>
     </>
   );
