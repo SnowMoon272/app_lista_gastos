@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-else-return */
 /* Librarys & Frameworks */

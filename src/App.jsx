@@ -3,12 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 /* Componets */
 import BarraTotalGastado from "./Components/BarraTotalGastado";
-import {
-  Header,
-  Titulo,
-  ContenedorHeader,
-  ContenedorBotones,
-} from "./Tools/Header";
+import { Header, Titulo, ContenedorHeader, ContenedorBotones } from "./Tools/Header";
 /* Elements */
 import BotonCerrarSesion from "./Tools/BotonCerrarSesion";
 import FormularioGasto from "./Components/FormularioGasto";
@@ -34,7 +29,6 @@ function App() {
       </Header>
 
       <FormularioGasto />
-
       <BarraTotalGastado />
     </>
   );

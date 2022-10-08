@@ -7,7 +7,7 @@ import theme from "../Assets/Colors";
 
 const slideDown = keyframes`
     0% {
-        transform: translateY(-1.25rem); /* 20px */
+        transform: translateY(-1.25rem);
         opacity: 0;
     }
 
@@ -42,7 +42,8 @@ const ContenedorAlerta = styled.div`
     background: ${(props) => {
       if (props.tipo === "error") {
         return theme.rojo;
-      } else if (props.tipo === "exito") {
+      }
+      if (props.tipo === "exito") {
         return theme.verde;
       }
       return "#000";
