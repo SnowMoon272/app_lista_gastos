@@ -23,11 +23,11 @@ function GastosPorCategoria() {
   return (
     <>
       <Helmet>
-        <title>Gastos por Categoria</title>
+        <title>Gastos por Categoría</title>
       </Helmet>
       <Header>
         <BtnRegresar ruta="/" />
-        <Titulo>Gastos por Categoria</Titulo>
+        <Titulo>Gastos por Categoría</Titulo>
       </Header>
 
       <ListaDeCategorias>

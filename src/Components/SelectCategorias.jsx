@@ -73,7 +73,7 @@ function SelectCategorias({ categoria, cambiarCategoria }) {
     { id: "ropa", texto: "Ropa" },
     { id: "salud e higiene", texto: "Salud e Higiene" },
     { id: "compras", texto: "Compras" },
-    { id: "diversion", texto: "Diversion" },
+    { id: "diversión", texto: "Diversión" },
   ];
 
   const handleClick = (e) => {
@@ -89,11 +89,7 @@ function SelectCategorias({ categoria, cambiarCategoria }) {
         <Opciones>
           {categorias.map((categoria) => {
             return (
-              <Opcion
-                data-valor={categoria.id}
-                key={categoria.id}
-                onClick={handleClick}
-              >
+              <Opcion data-valor={categoria.id} key={categoria.id} onClick={handleClick}>
                 <IconoCategoria id={categoria.id} />
                 {categoria.texto}
               </Opcion>

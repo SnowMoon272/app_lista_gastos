@@ -21,7 +21,7 @@ function App() {
         <ContenedorHeader>
           <Titulo>Agregar Gasto</Titulo>
           <ContenedorBotones>
-            <Boton to="/categorias">Categorias</Boton>
+            <Boton to="/categorias">Categorías</Boton>
             <Boton to="/lista">Lista de Gastos</Boton>
             <BotonCerrarSesion />
           </ContenedorBotones>

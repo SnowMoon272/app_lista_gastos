@@ -17,14 +17,14 @@ function useObtenerGastosDelMesPorCategoria() {
         return objetoResultante;
       },
       {
-        "comida": 0,
+        comida: 0,
         "cuentas y pagos": 0,
-        "hogar": 0,
-        "transporte": 0,
-        "ropa": 0,
+        hogar: 0,
+        transporte: 0,
+        ropa: 0,
         "salud e higiene": 0,
-        "compras": 0,
-        "diversion": 0,
+        compras: 0,
+        diversión: 0,
       },
     );
 

@@ -12,11 +12,7 @@ import Alerta from "../Tools/Alerta";
 /* Assets & CSS */
 import { ReactComponent as SvgLogin } from "../Images/registro.svg";
 import { auth } from "../firebase/firebaseConfig";
-import {
-  Formulario,
-  Input,
-  ContenedorBoton,
-} from "../Tools/ElementosDeFormularios";
+import { Formulario, Input, ContenedorBoton } from "../Tools/ElementosDeFormularios";
 
 const Svg = styled(SvgLogin)`
   width: 100%;
@@ -93,8 +89,7 @@ function RegistroUsuarios() {
           Mensaje = "La contraseña tiene que ser de al menos 6 caracteres.";
           break;
         case "auth/email-already-in-use":
-          Mensaje =
-            "Ya existe una cuenta con el correo electrónico proporcionado.";
+          Mensaje = "Ya existe una cuenta con el correo electrónico proporcionado.";
           break;
         case "auth/invalid-email":
           Mensaje = "El correo electrónico no es válido.";
@@ -119,7 +114,7 @@ function RegistroUsuarios() {
         <ContenedorHeader>
           <Titulo>Crear Cuenta</Titulo>
           <div>
-            <Boton to="/iniciar-sesion">Inciar Sesion</Boton>
+            <Boton to="/iniciar-sesion">Inciar Sesión</Boton>
           </div>
         </ContenedorHeader>
       </Header>
@@ -129,7 +124,7 @@ function RegistroUsuarios() {
         <Input
           type="email"
           name="email"
-          placeholder="Correo Electronico"
+          placeholder="Correo Electrónico"
           value={correo}
           onChange={handleChange}
         />

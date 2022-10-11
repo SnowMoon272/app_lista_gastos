@@ -9,11 +9,7 @@ import { Header, Titulo, ContenedorHeader } from "../Tools/Header";
 /* Elements */
 import Boton from "../Tools/Boton";
 import Alerta from "../Tools/Alerta";
-import {
-  Formulario,
-  Input,
-  ContenedorBoton,
-} from "../Tools/ElementosDeFormularios";
+import { Formulario, Input, ContenedorBoton } from "../Tools/ElementosDeFormularios";
 /* Assets & CSS */
 import { ReactComponent as SvgLogin } from "../Images/login.svg";
 import { auth } from "../firebase/firebaseConfig";
@@ -91,11 +87,11 @@ function InicioSesion() {
   return (
     <>
       <Helmet>
-        <title>Iniciar Sesion</title>
+        <title>Iniciar Sesión</title>
       </Helmet>
       <Header>
         <ContenedorHeader>
-          <Titulo>Iniciar Sesion</Titulo>
+          <Titulo>Iniciar Sesión</Titulo>
           <div>
             <Boton to="/crear-cuenta">Registrarse</Boton>
           </div>
@@ -107,7 +103,7 @@ function InicioSesion() {
         <Input
           type="email"
           name="email"
-          placeholder="Correo Electronico"
+          placeholder="Correo Electrónico"
           value={correo}
           onChange={handleChange}
         />
@@ -120,7 +116,7 @@ function InicioSesion() {
         />
         <ContenedorBoton>
           <Boton as="button" type="submit" primario>
-            Iniciar Sesion
+            Iniciar Sesión
           </Boton>
         </ContenedorBoton>
       </Formulario>
