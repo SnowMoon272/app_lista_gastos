@@ -55,7 +55,7 @@ function RegistroUsuarios() {
       cambiarEstadoAlerta(true);
       cambiarAlerta({
         tipo: "error",
-        mensaje: "Ingresa un correo electronico valido.",
+        mensaje: "Ingresa un correo electrónico válido.",
       });
       return null;
     }
@@ -64,7 +64,7 @@ function RegistroUsuarios() {
       cambiarEstadoAlerta(true);
       cambiarAlerta({
         tipo: "error",
-        mensaje: "Porfabor rellana todos los datos",
+        mensaje: "Rellana todos los datos",
       });
       return null;
     }
