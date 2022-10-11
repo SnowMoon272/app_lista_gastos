@@ -24,6 +24,10 @@ const BarraTotal = styled.div`
     flex-direction: column;
     font-size: 14px;
   }
+
+  @media (max-height: 530px) {
+    display: none;
+  }
 `;
 
 const BarraTotalGastado = () => {
